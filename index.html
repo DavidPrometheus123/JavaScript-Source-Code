@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Welcome
+    </title>   
+</head>
+    
+    
+    <body>
+        
+        <div id="output"></div>
+       
+        
+    <script>
+        
+    var html = "something went wrong";
+    var output = document.getElementById("output");
+    var question = prompt("heads or tails");
+    var result = question == "heads" ? 1 : 0;
+    var randomNumber = Math.floor(Math.random() * 2);
+    if(result == randomNumber) {
+      html = "yes, guessed correctly";  
+    } else {
+      html = "You are wrong"  
+    }
+    output.innerHTML = html;
+     
+    </script>
+    
+    <!--<script src="firstFile.js" type="text/javascript"></script>-->
+      
+    </body>
+    
+    
+</html>
