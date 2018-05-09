@@ -22,59 +22,33 @@
 </head>
     
     
-    <body> Code:
-    <input type="text" id="code1">
-    <input type="text" id="code2">
-    <input type="text" id="code3">
-    <br><br>
-    <input type="button" onclick="crack()" value="Try Code">
-    <br>
+    <body> 
     <div id="output"></div>
-        
+    <input type="button" onclick="startGame()" value="Start Game">
        
     <script>
     var output = document.getElementById("output");
-    
-    var cCode = [];
-    var count = 0;
-    var c1 = document.getElementById("code1");
-    var c2 = document.getElementById("code2");
-    var c3 = document.getElementById("code3");
+
+    var array = ["JS", "HTML", "CSS", "Jquery"];
         
-    for(var x = 0; x < 3; x++) {
-      var randomNumber = Math.floor(Math.random() * 10);
-      cCode.push(randomNumber);
+    function startGame() {
+      var newArray = shuffleArray(array);
+      output.innerHTML += newArray + "<br>";
+    } 
+
+    function shuffleArray(arr) {
+        for(var y = arr.length - 1; y > 0; y--) {
+           var randomIndex = Math.floor(Math.random() * (y + 1));
+           var initial = arr[y];
+           arr[y] = arr[randomIndex];
+           arr[randomIndex] = initial;
+        }
+        return arr;
     }
         
-    //output.innerHTML = cCode + "<br>";
-        
-    function checkNum(userNum, computerNum) {
-        if(Number(userNum) === computerNum) {
-            count++;
-            return computerNum;
-        } else if (Number(userNum) < computerNum){
-            return "L"; 
-        } else {
-            return "H"
-        }
-    }
-        
-    function crack() {
-        count = 0;
-        var guess = [c1.value, c2.value, c3.value];
-        for(var x = 0; x < cCode.length; x++) {
-            output.innerHTML += checkNum(guess[x], cCode[x]);
-        }
-        if(count === 3) {
-            output.innerHTML += "You guessed it <br>"
-        } else {
-            output.innerHTML += "<br>"
-        }
-    }
-    
     </script>
       
-    </body>
+    </body >
     
     
 </html>
