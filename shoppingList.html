@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Welcome
+    </title>   
+    <style>
+    td {
+      border: 1px solid black;
+      animation: ufo 5s infinite;
+    }
+        
+        @keyframes ufo{
+            from {
+                background-color: yellow;
+            }
+            to {
+                background-color: blue;
+            }
+        }
+    </style>
+</head>
+    
+    
+    <body>
+     <input id="item" type="text"><br><br>
+     <input type="button" onclick="addItem()" value="Add Item"><br>
+    <div id="output"></div>
+       
+    <script>
+    
+    var shoppingList = [];
+        
+    function addItem() {
+        var inputValue = document.getElementById("item").value;
+        shoppingList.push(inputValue);
+        
+        (function() {
+          var html = "";
+          for(var i = 0; i < shoppingList.length; i++) {
+             html += (i + 1) + ": " + shoppingList[i] + "<br>";
+          }
+            var output = document.getElementById("output");
+            output.innerHTML = html;
+        })();
+    }
+    
+
+    </script>
+      
+    </body >
+    
+    
+</html>
